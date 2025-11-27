@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "Notification API",
+    "_postman_id": "c848eeec-b5b1-4fa1-8ff8-e1b1c4e6ee0f",
+    "description": "Postman collection for NotificationController (create + findByOwner)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Notification",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ownerId\": \"user123\",\n  \"category\": \"Food\",\n  \"level\": \"MEDIUM\",\n  \"budgetAmount\": 500,\n  \"expenseAmount\": 120,\n  \"expenseDescription\": \"Dinner\",\n  \"totalSpent\": 300,\n  \"remaining\": 200\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/notifications",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8083",
+          "path": ["api", "notifications"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Notifications by Owner",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/notifications?ownerId=user123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8083",
+          "path": ["api", "notifications"],
+          "query": [
+            {
+              "key": "ownerId",
+              "value": "user123"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

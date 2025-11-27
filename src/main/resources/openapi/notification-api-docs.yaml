@@ -1,0 +1,97 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8083
+  description: Generated server url
+paths:
+  /api/notifications:
+    get:
+      tags:
+      - notification-controller
+      operationId: findByOwner
+      parameters:
+      - name: ownerId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Notification"
+    post:
+      tags:
+      - notification-controller
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationCreateRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Notification"
+components:
+  schemas:
+    NotificationCreateRequest:
+      required:
+      - category
+      - level
+      - ownerId
+      type: object
+      properties:
+        ownerId:
+          type: string
+        category:
+          type: string
+        level:
+          type: string
+        budgetAmount:
+          type: number
+        expenseAmount:
+          type: number
+        expenseDescription:
+          type: string
+        totalSpent:
+          type: number
+        remaining:
+          type: number
+    Notification:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        ownerId:
+          type: string
+        category:
+          type: string
+        level:
+          type: string
+        budgetAmount:
+          type: number
+        expenseAmount:
+          type: number
+        expenseDescription:
+          type: string
+        totalSpent:
+          type: number
+        remaining:
+          type: number
+        readFlag:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
