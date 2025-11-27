@@ -34,6 +34,7 @@ cd finance-mgmt-notification
 * [http://localhost:8083/v3/api-docs](http://localhost:8083/v3/api-docs)
 * [http://localhost:8083/v3/api-docs.yaml](http://localhost:8083/v3/api-docs.yaml)
 
+Swagger specifications: notification-openapi.yaml You can also import the provided notification-postman-collection.json into Postman or any API tool.
 ---
 
 ## APIs
