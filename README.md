@@ -44,16 +44,14 @@ Swagger specifications: notification-openapi.yaml You can also import the provid
 
 ---
 
-## Docker
-
-```bash
-docker build -t notification .
-docker-compose up
-```
-
----
-
 ## H2 Console
 
 URL: [http://localhost:8083/h2-console](http://localhost:8083/h2-console)
 **JDBC URL:** `jdbc:h2:mem:notificationdb`
+
+---
+
+## Docker Instructions
+docker build -t finance-mgmt-notification .
+
+docker run -p 8083:8083 finance-mgmt-notification
